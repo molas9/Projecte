@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'aplicacions.portal',
     'aplicacions.producte',
     'aplicacions.usuari',
+    'aplicacions.oferta',
 ]
 
 MIDDLEWARE = [
