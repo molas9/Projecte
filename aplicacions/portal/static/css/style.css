@@ -981,3 +981,30 @@ setCookieBtn:hover {
     color: #531115;
     border-color: #531115;
 }
+
+.comandarep th {
+    background-color: #FF953D;
+    text-align: center;
+    padding: 20px;
+}
+
+.comandarep td {
+    padding: 20px;
+}
+
+.comandarep:nth-child(even) {
+    background-color: #FFD6B4;
+}
+
+.comandarep:nth-child(odd) {
+    background-color: #F4EDDB;
+}
+
+.comanda {
+    width: 100%;
+}
+
+option:disabled {
+    background-color: lightgrey;
+    color: white;
+}

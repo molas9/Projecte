@@ -1,0 +1,316 @@
+<!doctype html>
+<html>
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1">
+    <title>Homepage</title>
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="img/x-icon">
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
+
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/remodal.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/remodal-default-theme.css' %}" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="{% static 'js/jquery.1.8.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-scrolltofixed.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.isotope.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/wow.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/classie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/remodal.min.js' %}"></script>
+
+    <style>
+        #productebutton {
+            font-size: 18px;
+            border:2px solid black;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        #productebutton:hover {
+            cursor: pointer;
+            border:2px solid transparent;
+            background-color: darkblue;
+        }
+
+        #productebutton:hover #preu {
+            display: none;
+        }
+
+        #productebutton:hover #carro {
+            display: inline-block !important;
+        }
+
+    </style>
+</head>
+<body>
+    <!--MENÚ-->
+        <nav class="main-nav-outer" id="test"><!--main-nav-start-->
+            <div class="container">
+                <ul class="main-nav">
+                    <li><a href="{% url 'portal:index' %}#ofertes">Ofertes</a></li>
+                    <li><a href="{% url 'portal:index' %}#productes">Productes</a></li>
+                    <li><a href="{% url 'portal:index' %}#appweb">Gnomuts</a></li>
+                    <li class="small-logo"><a href="{% url 'portal:index' %}#header"><img src="{% static 'img/logo.png' %}" alt="" height="80px"></a></li>
+                    <li><a href="{% url 'portal:index' %}#equip">Equip</a></li>
+                    <li><a href="{% url 'portal:index' %}#contacte">Contacte</a></li>
+                    <li><a href="#">Fer comanda</a></li>
+                </ul>
+                <a class="res-nav_click" href="#"><i class="fa fa-bars"></i></a>
+            </div>
+        </nav>
+
+    <!--REPARTIMENT A DOMICILI-->
+        <section class="main-section alabaster" id="repartiment">
+            <div class="container">
+                <h2>Repartiment a domicili</h2>
+                <h6>Et portem la teva comanda a casa teva.</h6>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form action="" method="POST" role="form">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <legend>Direcció</legend>
+                                    <div class="form-group">
+                                        <label for="">Nom i cognoms *</label>
+                                        <input type="text" class="form-control" id="nom" required><br>
+                                        <label for="">Telèfon *</label>
+                                        <input type="text" class="form-control" id="telefon" required><br>
+                                        <label for="">Localitat *</label>
+                                        <input type="text" class="form-control" id="localitat" required><br>
+                                        <label for="">Codi Postal *</label>
+                                        <input type="text" class="form-control" id="codipostal" required><br>
+                                        <label for="">Adreça *</label>
+                                        <input type="text" class="form-control" id="adreca" required><br>
+                                        <label for="">Observacions</label>
+                                        <textarea class="form-control" name="observacions" id="observacions" cols="30" rows="5" style="resize:none"></textarea>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" required>
+                                                He llegit i accepto les condicions d'ús
+                                            </label>
+                                        </div>
+                                        <p>* Dades obligatòries</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <legend>Comanda</legend>
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Quantitat</th>
+                                                <th>Producte</th>
+                                                <th>Preu unitat</th>
+                                                <th>Preu total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <select name="quantitat" id="quantitat" class="form-control" required="required">
+                                                        <option value="">1</option>
+                                                        <option value="">2</option>
+                                                        <option value="">3</option>
+                                                        <option value="">4</option>
+                                                        <option value="">5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name="producte" id="producte" class="form-control" required="required">
+                                                        <option id="categoria" value="SANDVITXOS" disabled>SANDVITXOS</option>
+                                                        {% for sandvitx in sandvitxos %}
+                                                            <option value="">{{ sandvitx.nom }}</option>
+                                                        {% endfor %}
+
+                                                        <option id="categoria" value="ENTRANTS" disabled>ENTRANTS</option>
+                                                        {% for entrant in entrants %}
+                                                            <option value="">{{ entrant.nom }}</option>
+                                                        {% endfor %}
+
+                                                        <option id="categoria" value="BEGUDES" disabled>BEGUDES</option>
+                                                        {% for beguda in begudes %}
+                                                            <option value="">{{ beguda.nom }}</option>
+                                                        {% endfor %}
+
+                                                        <option id="categoria" value="GNOMUTS" disabled>GNOMUTS</option>
+                                                        {% for gnomut in gnomuts %}
+                                                            <option value="">{{ gnomut.nom }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <h2>5€</h2>
+                                                </td>
+                                                <td>
+                                                    <h2>15€</h2>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button id="afegirLinea" type="submit" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary col-sm-2 col-sm-offset-5">Fer comanda</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!--COOKIES-->
+        <section class="cookieElement">
+            <p>Utilitzem cookies pròpies i de tercers per millorar els nostres serveis i mostrar publicitat relacionada amb les seves preferències mitjançant l'anàlisi dels seus hàbits de navegació. Si continua navegant, considerem que accepta el seu ús <a href="http://google.com">Llegir més</a></p>
+            <button class="setCookieBtn">Accepto</button>
+        </section>
+
+    <!--FOOTER-->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo"><a href="#"><img src="{% static 'img/logo.png' %}" alt=""></a></div>
+                <span class="copyright">&copy; Gnomuts. Tots els drets reservats</span>
+                <div class="credits">
+                    Web dissenyada per: <a href="#">Arnau Molas</a>
+                </div>
+            </div>
+        </footer>
+
+    <!--SCRIPTS-->
+        <script type="text/javascript">
+            $(document).ready(function(e) {
+                $('#test').scrollToFixed();
+                $('.res-nav_click').click(function(){
+                    $('.main-nav').slideToggle();
+                    return false
+
+                });
+
+            });
+        </script>
+
+        <script>
+            wow = new WOW(
+            {
+                animateClass: 'animated',
+                offset:       100
+            }
+            );
+            wow.init();
+        </script>
+
+        <script type="text/javascript">
+            $(window).load(function(){
+
+                $('.main-nav li a, .servicelink').bind('click',function(event){
+                    var $anchor = $(this);
+
+                    $('html, body').stop().animate({
+                        scrollTop: $($anchor.attr('href')).offset().top - 102
+                    }, 1500,'easeInOutExpo');
+                    /*
+                    if you don't want to use the easing effects:
+                    $('html, body').stop().animate({
+                        scrollTop: $($anchor.attr('href')).offset().top
+                    }, 1000);
+                    */
+            if ($(window).width() < 768 ) {
+                $('.main-nav').hide();
+            }
+                    event.preventDefault();
+                });
+            })
+        </script>
+
+        <script type="text/javascript">
+
+        $(window).load(function(){
+
+
+        var $container = $('.portfolioContainer'),
+            $body = $('body'),
+            colW = 375,
+            columns = null;
+
+
+        $container.isotope({
+            // disable window resizing
+            resizable: true,
+            masonry: {
+            columnWidth: colW
+            }
+        });
+
+        $(window).smartresize(function(){
+            // check if columns has changed
+            var currentColumns = Math.floor( ( $body.width() -30 ) / colW );
+            if ( currentColumns !== columns ) {
+            // set new column count
+            columns = currentColumns;
+            // apply width to container manually, then trigger relayout
+            $container.width( columns * colW )
+                .isotope('reLayout');
+            }
+
+        }).smartresize(); // trigger resize to set container width
+        $('.portfolioFilter a').click(function(){
+                $('.portfolioFilter .current').removeClass('current');
+                $(this).addClass('current');
+
+                var selector = $(this).attr('data-filter');
+                $container.isotope({
+
+                    filter: selector,
+                });
+                return false;
+            });
+
+        });
+
+        </script>
+
+        <script type="text/javascript">
+            const cookieCheck = (cookieName = 'defaultName', daysUntilExpire = 365) => {
+                const cookieElement = document.querySelector('.cookieElement');
+                const acceptBtn = document.querySelector('.setCookieBtn');
+
+                let showCookieMessage = true;
+
+                const cookies = document.cookie.split(';').map((cookie) => {
+                    if(cookie.replace(/ /g, '') == `${cookieName}=true`) {
+                        showCookieMessage = false;
+                    }
+                });
+
+                if(showCookieMessage) {
+                    cookieElement.classList.add('is-visible');
+
+                        acceptBtn.addEventListener('click', e => {
+                            e.preventDefault();
+                            setCookie();
+                            cookieElement.classList.remove('is-visible');
+                        });
+                }
+
+                function setCookie() {
+                    let expireInDays = new Date();
+
+                    expireInDays.setDate(expireInDays.getDate() + daysUntilExpire);
+
+                    document.cookie = `${cookieName}=true; expires=${expireInDays} path=/`;
+                }
+            };
+
+            cookieCheck('cookiePrivacitat', 2);
+        </script>
+
+</body>
+</html>

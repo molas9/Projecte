@@ -4,7 +4,6 @@ from aplicacions.oferta.models import Oferta
 class Producte(models.Model):
     nom = models.CharField(max_length=50)
     descripcio = models.CharField(max_length=100, null=True)
-    oferta = models.ForeignKey(Oferta, null=True, blank=True, default=0)
     preu = models.FloatField()
     tipusChoices = (
         ('Sandvitxos', 'Sandvitxos'),
@@ -17,6 +16,7 @@ class Producte(models.Model):
         choices=tipusChoices,
         default=0
     )
+    imatge = models.ImageField(upload_to='Producte', blank=True, null=True)
 
     def __unicode__(self):
         return str(self.nom)

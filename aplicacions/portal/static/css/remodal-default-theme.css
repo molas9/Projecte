@@ -169,6 +169,8 @@
 .remodal-confirm:hover,
 .remodal-confirm:focus {
   background: #66bb6a;
+  color: white !important;
+  text-decoration: none !important;
 }
 
 .remodal-cancel {
