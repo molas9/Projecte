@@ -18,5 +18,5 @@ class Producte(models.Model):
     )
     imatge = models.ImageField(upload_to='Producte', blank=True, null=True)
 
-    def __unicode__(self):
-        return str(self.nom)
+    def __str__(self):
+        return self.nom

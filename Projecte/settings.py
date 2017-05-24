@@ -109,8 +109,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ca'
 
-TIME_ZONE = 'Europe/Barcelona'
-
 USE_I18N = True
 
 USE_L10N = True
